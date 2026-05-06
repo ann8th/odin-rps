@@ -1,0 +1,52 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #3de5ad;
+    color: #042419;
+
+    font-size: 18px;
+    font-weight: 900;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.message {
+    margin: 20vh auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.message {
+    width: 600px;
+    height: 200px;
+    background-color: #fee;
+
+    border: 4px solid #042419;
+    border-radius: 6px;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+
+.message code {
+    background-color: #abe7d3;
+}
+
+
