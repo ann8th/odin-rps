@@ -26,3 +26,16 @@ function getComputerChoice() {
 
 // console.log(`rock=${rock}\npaper=${paper}\nscissors=${scissors}\ni=${i}`);
 
+//  Get the human choice
+
+function getHumanChoice() {
+    let humanChoice = prompt('Rock, Paper or Scissors?',).toLowerCase();
+    return humanChoice;
+}
+
+// console.log(getHumanChoice());
+// console.log(getHumanChoice());
+// console.log(getHumanChoice());
+// console.log(getHumanChoice());
+// console.log(getHumanChoice());
+// console.log(getHumanChoice());
