@@ -1,5 +1,5 @@
-// Get the computer choice
 
+// Get the computer choice
 function getComputerChoice() {
     let computerChoice;
     let randomNum = Math.floor(Math.random() * 3 + 1);
@@ -10,32 +10,73 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-// let i = 0
-//     , rock = 0
-//     , paper = 0
-//     , scissors = 0;
-
-
-// do {
-//     let testVal = getComputerChoice(); 
-//     testVal === "rock" ? rock++ : 
-//     testVal === "paper" ? paper++ :
-//     testVal === "scissors" ? scissors++ : console.log(testVal);
-//     i++;
-// } while (i < 30);
-
-// console.log(`rock=${rock}\npaper=${paper}\nscissors=${scissors}\ni=${i}`);
-
-//  Get the human choice
-
+// Get the human choice
 function getHumanChoice() {
     let humanChoice = prompt('Rock, Paper or Scissors?',).toLowerCase();
     return humanChoice;
 }
 
-// console.log(getHumanChoice());
-// console.log(getHumanChoice());
-// console.log(getHumanChoice());
-// console.log(getHumanChoice());
-// console.log(getHumanChoice());
-// console.log(getHumanChoice());
+// Create the players score variables
+let humanScore = 0, computerScore = 0;
+
+// The logic for playing a single round
+function playRound(computerRoundChoice, humanRoundChoice) {
+    let roundStatus;
+    if (computerRoundChoice === humanRoundChoice) {
+        roundStatus = "Friendship";
+    } else {
+        switch(computerRoundChoice) {
+            case "rock":
+                {
+                    switch(humanRoundChoice) {
+                        case "paper":
+                            roundStatus = "Human";
+                            ++humanScore;
+                            break;
+                        case "scissors":
+                            roundStatus = "Computer";
+                            ++computerScore;
+                            break;
+                    }
+                }
+                break;
+            case "paper":
+                {
+                    switch(humanRoundChoice) {
+                        case "rock":
+                            roundStatus = "Computer";
+                            ++computerScore;
+                            break;
+                        case "scissors":
+                            roundStatus = "Human";
+                            ++humanScore;
+                            break;
+                    }
+                }
+                break;
+            case "scissors":
+                {
+                switch(humanRoundChoice) {
+                        case "rock":
+                            roundStatus = "Human";
+                            ++humanScore;
+                            break;
+                        case "paper":
+                            roundStatus = "Computer";
+                            ++computerScore;
+                            break;
+                    }
+                }
+        }
+
+        
+    }
+
+    console.log(`Computer drew ${computerRoundChoice}.\nHuman drew ${humanRoundChoice}.\nRound Won By: ${roundStatus}\nHuman: ${humanScore}\nComputer: ${computerScore}`);
+}
+
+// for (let i=0; i < 10; i++){let humanSelection = getHumanChoice();
+// let computerSelection = getComputerChoice();
+
+// playRound(humanSelection, computerSelection);}
+
