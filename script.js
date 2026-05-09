@@ -72,11 +72,25 @@ function playRound(computerRoundChoice, humanRoundChoice) {
         
     }
 
-    console.log(`Computer drew ${computerRoundChoice}.\nHuman drew ${humanRoundChoice}.\nRound Won By: ${roundStatus}\nHuman: ${humanScore}\nComputer: ${computerScore}`);
+    return `Computer drew ${computerRoundChoice}.\nHuman drew ${humanRoundChoice}.\nRound Won By: ${roundStatus}\nHuman: ${humanScore}\nComputer: ${computerScore}`
 }
 
-// for (let i=0; i < 10; i++){let humanSelection = getHumanChoice();
-// let computerSelection = getComputerChoice();
 
-// playRound(humanSelection, computerSelection);}
+// The logic for playing the game
+function playGame() {    
+    while (humanScore !== 3 && computerScore !== 3) {
+        let computerSelection = getComputerChoice(),
+            humanSelection = getHumanChoice();
+        console.log(playRound(computerSelection, humanSelection));
+        
+        if (humanScore === 3 || computerScore === 3) {
+        let winner;
+        humanScore === 3 ? winner = "HUMAN" : winner = "COMPUTER";
+        console.log(`GAME WON BY ${winner}`);
+        humanScore = computerScore = 0;
+        }
+    }
 
+}
+
+playGame();
