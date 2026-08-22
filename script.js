@@ -1,3 +1,5 @@
+// Define winning score constant
+const WINNING_SCORE = 3;
 
 // Get the computer choice
 function getComputerChoice() {
@@ -78,16 +80,15 @@ function playRound(computerRoundChoice, humanRoundChoice) {
 
 // The logic for playing the game
 function playGame() {    
-    while (humanScore !== 3 && computerScore !== 3) {
+    while (humanScore !== WINNING_SCORE && computerScore !== WINNING_SCORE) {
         let computerSelection = getComputerChoice(),
             humanSelection = getHumanChoice();
         console.log(playRound(computerSelection, humanSelection));
-        
-        if (humanScore === 3 || computerScore === 3) {
+
+        if (humanScore === WINNING_SCORE || computerScore === WINNING_SCORE) {
         let winner;
-        humanScore === 3 ? winner = "HUMAN" : winner = "COMPUTER";
+        humanScore === WINNING_SCORE ? winner = "HUMAN" : winner = "COMPUTER";
         console.log(`GAME WON BY ${winner}`);
-        humanScore = computerScore = 0;
         }
     }
 
