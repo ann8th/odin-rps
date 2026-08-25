@@ -9,17 +9,33 @@
 </head>
 <body>
     <h1>A Rock Paper Scissors GAME</h1>
-    <div class="message">
+    <div class="game-container">
 
         <div class="game-status">
-            HUMAN: 0
-            COMPUTER: 0
+            <div class="computer">COMPUTER: 0</div>
+            <div class="human">HUMAN: 0</div>
+        </div>
+
+        <div class="game-space">
+          VS
         </div>
         
         <div class="game-btns">
-            <button class="btn rock-btn">ROCK</button>
-            <button class="btn paper-btn">PAPER</button>
-            <button class="btn scissors-btn">SCISSORS</button>
+            <div class="btns">
+                <button class="btn rock-btn">
+                    <img src="./imgs/rock.svg" alt="rock-image" width="70">
+                    ROCK
+                </button>
+                <button class="btn paper-btn">
+                    <img src="./imgs/paper.svg" alt="paper-image" width="70">
+                    PAPER
+                </button>
+                <button class="btn scissors-btn">
+                    <img src="./imgs/scissors.svg" alt="scissors-image" width="70">
+                    SCISSORS
+                </button>
+            </div>
+            <p>CHOOSE YOUR WEAPON!</p>
         </div>
 
     </div>
