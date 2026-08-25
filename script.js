@@ -12,19 +12,23 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-// Get the human choice
-// function getHumanChoice() {
-//     let humanChoice = prompt('Rock, Paper or Scissors?',).toLowerCase();
-//     return humanChoice;
-// }
-
-// Create the players score variables and select the elements for displayed values
+// Create the players score variables
 let humanScore = 0, computerScore = 0;
 
+// Select the elements for computer and human scores display
 const computerScoreDisplayed = document.querySelector(".computer");
-computerScoreDisplayed.textContent = computerScore;
 const humanScoreDisplayed = document.querySelector(".human");
+computerScoreDisplayed.textContent = computerScore;
 humanScoreDisplayed.textContent = humanScore;
+
+// Select the game-space div for displaying round choices
+const gameSpace = document.querySelector(".game-space");
+const computerRoundChoiceToDisplay = document.querySelector("#computer");
+const humanRoundChoiceToDisplay = document.querySelector("#human");
+gameSpace.appendChild.humanRoundChoiceToDisplay;
+gameSpace.appendChild.computerRoundChoiceToDisplay;
+computerRoundChoiceToDisplay.width = 100;
+humanRoundChoiceToDisplay.width = 100;
 
 // The logic for playing a single round
 function playRound(computerRoundChoice, humanRoundChoice) {
@@ -36,6 +40,7 @@ function playRound(computerRoundChoice, humanRoundChoice) {
                         ++humanScore;
                         break;
                     case "scissors":
+                        
                         ++computerScore;
                         break;
                 }
@@ -45,6 +50,7 @@ function playRound(computerRoundChoice, humanRoundChoice) {
             {
                 switch(humanRoundChoice) {
                     case "rock":
+                        
                         ++computerScore;
                         break;
                     case "scissors":
@@ -60,22 +66,33 @@ function playRound(computerRoundChoice, humanRoundChoice) {
                         ++humanScore;
                         break;
                     case "paper":
+                        
                         ++computerScore;
                         break;
                 }
             }
-            break;
     }
 
+
+    console.log(`Computer drew ${computerRoundChoice}.\nHuman drew ${humanRoundChoice}.\nHuman: ${humanScore}\nComputer: ${computerScore}`)
+
+    computerRoundChoiceToDisplay.src = `/imgs/${computerRoundChoice}.svg`;
+    computerScoreDisplayed.textContent = computerScore;
+    humanRoundChoiceToDisplay.src = `/imgs/${humanRoundChoice}.svg`;
+    humanScoreDisplayed.textContent = humanScore;
+
+
+}
+
+const gameInputs = document.querySelectorAll("input");
+for (const input of gameInputs) {
+    input.addEventListener("click", (e) => playRound(getComputerChoice(), e.target.alt))
 }
 
 
 // The logic for playing the game
 function playGame() {    
     while (humanScore !== WINNING_SCORE && computerScore !== WINNING_SCORE) {
-        let computerSelection = getComputerChoice(),
-            humanSelection = getHumanChoice();
-        console.log(playRound(computerSelection, humanSelection));
 
         if (humanScore === WINNING_SCORE || computerScore === WINNING_SCORE) {
         let winner;
@@ -86,4 +103,4 @@ function playGame() {
 
 }
 
-playGame();
+// playGame();
