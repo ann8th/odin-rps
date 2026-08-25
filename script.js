@@ -28,58 +28,45 @@ humanScoreDisplayed.textContent = humanScore;
 
 // The logic for playing a single round
 function playRound(computerRoundChoice, humanRoundChoice) {
-    let roundStatus;
-    if (computerRoundChoice === humanRoundChoice) {
-        roundStatus = "Friendship";
-    } else {
-        switch(computerRoundChoice) {
-            case "rock":
-                {
-                    switch(humanRoundChoice) {
-                        case "paper":
-                            roundStatus = "Human";
-                            ++humanScore;
-                            break;
-                        case "scissors":
-                            roundStatus = "Computer";
-                            ++computerScore;
-                            break;
-                    }
-                }
-                break;
-            case "paper":
-                {
-                    switch(humanRoundChoice) {
-                        case "rock":
-                            roundStatus = "Computer";
-                            ++computerScore;
-                            break;
-                        case "scissors":
-                            roundStatus = "Human";
-                            ++humanScore;
-                            break;
-                    }
-                }
-                break;
-            case "scissors":
-                {
+    switch(computerRoundChoice) {
+        case "rock":
+            {
                 switch(humanRoundChoice) {
-                        case "rock":
-                            roundStatus = "Human";
-                            ++humanScore;
-                            break;
-                        case "paper":
-                            roundStatus = "Computer";
-                            ++computerScore;
-                            break;
-                    }
+                    case "paper":
+                        ++humanScore;
+                        break;
+                    case "scissors":
+                        ++computerScore;
+                        break;
                 }
-        }
-
-        
+            }
+            break;
+        case "paper":
+            {
+                switch(humanRoundChoice) {
+                    case "rock":
+                        ++computerScore;
+                        break;
+                    case "scissors":
+                        ++humanScore;
+                        break;
+                }
+            }
+            break;
+        case "scissors":
+            {
+            switch(humanRoundChoice) {
+                    case "rock":
+                        ++humanScore;
+                        break;
+                    case "paper":
+                        ++computerScore;
+                        break;
+                }
+            }
+            break;
     }
 
-    return `Computer drew ${computerRoundChoice}.\nHuman drew ${humanRoundChoice}.\nRound Won By: ${roundStatus}\nHuman: ${humanScore}\nComputer: ${computerScore}`
 }
 
 
