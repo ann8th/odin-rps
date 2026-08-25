@@ -81,26 +81,63 @@ function playRound(computerRoundChoice, humanRoundChoice) {
     humanRoundChoiceToDisplay.src = `/imgs/${humanRoundChoice}.svg`;
     humanScoreDisplayed.textContent = humanScore;
 
-
-}
-
-const gameInputs = document.querySelectorAll("input");
-for (const input of gameInputs) {
-    input.addEventListener("click", (e) => playRound(getComputerChoice(), e.target.alt))
-}
-
-
-// The logic for playing the game
-function playGame() {    
-    while (humanScore !== WINNING_SCORE && computerScore !== WINNING_SCORE) {
-
-        if (humanScore === WINNING_SCORE || computerScore === WINNING_SCORE) {
-        let winner;
-        humanScore === WINNING_SCORE ? winner = "HUMAN" : winner = "COMPUTER";
-        console.log(`GAME WON BY ${winner}`);
-        }
+    if (computerScore === WINNING_SCORE || humanScore === WINNING_SCORE) {
+        displayWinner();
     }
 
 }
 
-// playGame();
+
+const gameBtns = document.querySelector(".game-btns");
+const gameContainer = document.querySelector(".game-container");
+const text = document.createElement("h2");
+gameContainer.appendChild(text);
+const newGameButton = document.createElement("button");
+gameContainer.appendChild(newGameButton);
+
+const gameInputs = document.querySelectorAll("input");
+    for (const input of gameInputs) {
+        input.addEventListener("click", (e) => {
+            e.stopImmediatePropagation();
+            playRound(getComputerChoice(), e.target.alt);
+    })
+}
+
+// Selecting the game winner
+function displayWinner() {
+    let winner;
+    humanScore === WINNING_SCORE ? winner = "YOU" : winner = "COMPUTER";
+    // Displaying the game results
+    gameBtns.classList.add("hidden");
+    gameSpace.classList.add("hidden");
+    
+    text.classList.add("congrats");
+    text.textContent = `THE WINNER IS ${winner}!`;
+    
+    newGameButton.type = "reset";
+    newGameButton.innerText = "NEW GAME?";
+    newGameButton.classList.add("btn");
+    
+    newGameButton.addEventListener("click", (e) =>{
+        restartGame();
+
+    })
+}
+
+
+// Restarting the Game
+function restartGame() {
+    humanScore = 0;
+    computerScore = 0;
+    computerScoreDisplayed.textContent = computerScore;
+    humanScoreDisplayed.textContent = humanScore;
+    
+    gameBtns.classList.remove("hidden");
+    gameSpace.classList.remove("hidden");
+    computerRoundChoiceToDisplay.src = '';
+    humanRoundChoiceToDisplay.src = '';
+    text.textContent = '';
+    newGameButton.innerText = '';
+    newGameButton.classList.remove("btn");
+
+}
