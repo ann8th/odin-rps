@@ -13,13 +13,18 @@ function getComputerChoice() {
 }
 
 // Get the human choice
-function getHumanChoice() {
-    let humanChoice = prompt('Rock, Paper or Scissors?',).toLowerCase();
-    return humanChoice;
-}
+// function getHumanChoice() {
+//     let humanChoice = prompt('Rock, Paper or Scissors?',).toLowerCase();
+//     return humanChoice;
+// }
 
-// Create the players score variables
+// Create the players score variables and select the elements for displayed values
 let humanScore = 0, computerScore = 0;
+
+const computerScoreDisplayed = document.querySelector(".computer");
+computerScoreDisplayed.textContent = computerScore;
+const humanScoreDisplayed = document.querySelector(".human");
+humanScoreDisplayed.textContent = humanScore;
 
 // The logic for playing a single round
 function playRound(computerRoundChoice, humanRoundChoice) {
