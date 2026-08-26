@@ -150,6 +150,6 @@ function restartGame() {
     // Erase congratulatory message and button
     text.textContent = '';
     newGameButton.innerText = '';
-    gameContainer.removeChild(newGameButton);
+    newGameButton.remove();
 
 }
