@@ -2,6 +2,8 @@
 
 A game of **Rock Paper Scissors**, part of the Odin Project curriculum, [Foundations Course](https://www.theodinproject.com/paths/foundations/courses/foundations). 
 
+> **Update:** *UI added as part of the [course](https://www.theodinproject.com/lessons/foundations-revisiting-rock-paper-scissors)*
+
 > *This is my third project - a browser console game with no initial GUI. The objective of this project is to practice the basic JavaScript concepts studied so far.*
 
 ---
@@ -11,4 +13,15 @@ A game of **Rock Paper Scissors**, part of the Odin Project curriculum, [Foundat
 - using the browser Developer Tools
 - writing functions and returning values
 - problem solving techniques
-- understanding and resolving errors 
+- understanding and resolving errors
+- creating, removing DOM elements
+- adding Event listeners
+- writing clean explanatory code
+- writing clear and concise comments
+
+---
+## GIT skills demonstrated
+- staging and commiting to GIT
+- creating a new GIT branch
+- merging GIT branches
+- deleting GIT branches
