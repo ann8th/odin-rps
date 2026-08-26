@@ -77,9 +77,9 @@ function playRound(computerRoundChoice, humanRoundChoice) {
     // console.log(`Computer drew ${computerRoundChoice}.\nHuman drew ${humanRoundChoice}.\nHuman: ${humanScore}\nComputer: ${computerScore}`)
 
     // display the choices made by players and their scores
-    computerRoundChoiceToDisplay.src = `/imgs/${computerRoundChoice}.svg`;
+    computerRoundChoiceToDisplay.src = `imgs/${computerRoundChoice}.svg`;
     computerScoreDisplayed.textContent = computerScore;
-    humanRoundChoiceToDisplay.src = `/imgs/${humanRoundChoice}.svg`;
+    humanRoundChoiceToDisplay.src = `imgs/${humanRoundChoice}.svg`;
     humanScoreDisplayed.textContent = humanScore;
 
     // condition for checking if there is a winner
