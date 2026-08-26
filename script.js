@@ -1,5 +1,5 @@
 // Define winning score constant
-const WINNING_SCORE = 3;
+const WINNING_SCORE = 5;
 
 // Get the computer choice
 function getComputerChoice() {
@@ -21,7 +21,7 @@ const humanScoreDisplayed = document.querySelector(".human");
 computerScoreDisplayed.textContent = computerScore;
 humanScoreDisplayed.textContent = humanScore;
 
-// Select the game-space div for displaying round choices
+// Select the game-space imgs for displaying round choices
 const gameSpace = document.querySelector(".game-space");
 const computerRoundChoiceToDisplay = document.querySelector("#computer");
 const humanRoundChoiceToDisplay = document.querySelector("#human");
@@ -30,7 +30,7 @@ gameSpace.appendChild.computerRoundChoiceToDisplay;
 computerRoundChoiceToDisplay.width = 100;
 humanRoundChoiceToDisplay.width = 100;
 
-// The logic for playing a single round
+// The logic for playing each round
 function playRound(computerRoundChoice, humanRoundChoice) {
     switch(computerRoundChoice) {
         case "rock":
@@ -74,46 +74,52 @@ function playRound(computerRoundChoice, humanRoundChoice) {
     }
 
 
-    console.log(`Computer drew ${computerRoundChoice}.\nHuman drew ${humanRoundChoice}.\nHuman: ${humanScore}\nComputer: ${computerScore}`)
+    // console.log(`Computer drew ${computerRoundChoice}.\nHuman drew ${humanRoundChoice}.\nHuman: ${humanScore}\nComputer: ${computerScore}`)
 
+    // display the choices made by players and their scores
     computerRoundChoiceToDisplay.src = `/imgs/${computerRoundChoice}.svg`;
     computerScoreDisplayed.textContent = computerScore;
     humanRoundChoiceToDisplay.src = `/imgs/${humanRoundChoice}.svg`;
     humanScoreDisplayed.textContent = humanScore;
 
+    // condition for checking if there is a winner
     if (computerScore === WINNING_SCORE || humanScore === WINNING_SCORE) {
         displayWinner();
     }
 
 }
 
-
+// Select buttons, the game container 
 const gameBtns = document.querySelector(".game-btns");
 const gameContainer = document.querySelector(".game-container");
+// create element for displaying the winner
 const text = document.createElement("h2");
 gameContainer.appendChild(text);
+// create button for starting a new game
 const newGameButton = document.createElement("button");
-gameContainer.appendChild(newGameButton);
 
+
+// Event listener for playing the game
 const gameInputs = document.querySelectorAll("input");
     for (const input of gameInputs) {
         input.addEventListener("click", (e) => {
             e.stopImmediatePropagation();
             playRound(getComputerChoice(), e.target.alt);
-    })
-}
-
-// Selecting the game winner
-function displayWinner() {
-    let winner;
+        })
+    }
+    
+    // Display winner
+    function displayWinner() {
+        let winner;
     humanScore === WINNING_SCORE ? winner = "YOU" : winner = "COMPUTER";
-    // Displaying the game results
+    // Hide the game buttons and game space
     gameBtns.classList.add("hidden");
     gameSpace.classList.add("hidden");
-    
+    // Show the congratulatory message
     text.classList.add("congrats");
     text.textContent = `THE WINNER IS ${winner}!`;
-    
+    // Show the button for new game
+    gameContainer.appendChild(newGameButton);
     newGameButton.type = "reset";
     newGameButton.innerText = "NEW GAME?";
     newGameButton.classList.add("btn");
@@ -125,19 +131,25 @@ function displayWinner() {
 }
 
 
-// Restarting the Game
+// Restart the Game
 function restartGame() {
+    // Reset the scores
     humanScore = 0;
     computerScore = 0;
     computerScoreDisplayed.textContent = computerScore;
     humanScoreDisplayed.textContent = humanScore;
     
+    // Show game buttons and game space
     gameBtns.classList.remove("hidden");
     gameSpace.classList.remove("hidden");
+    
+    // Reset round choice imgs 
     computerRoundChoiceToDisplay.src = '';
     humanRoundChoiceToDisplay.src = '';
+    
+    // Erase congratulatory message and button
     text.textContent = '';
     newGameButton.innerText = '';
-    newGameButton.classList.remove("btn");
+    gameContainer.removeChild(newGameButton);
 
 }
