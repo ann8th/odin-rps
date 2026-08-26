@@ -35,9 +35,9 @@ h1 {
 
 .game-container {
     margin: 10px auto;
-    padding: 30px;
+    padding: 16px;
     width: 600px;
-    height: 500px;
+    height: 480px;
     background-color: #fee;
 
     border: 3px solid #0c330c;
@@ -47,7 +47,7 @@ h1 {
     align-items: center;
     justify-content: flex-start;
 
-    gap: 50px;
+    gap: 30px;
 
 }
 
@@ -110,6 +110,11 @@ input {
 
 }
 
+
+.game-rules span {
+    display: inline-block;
+    width: 28px;
+}
 
 .hidden {
     display: none;
