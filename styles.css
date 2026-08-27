@@ -13,8 +13,8 @@ html {
 body {
     width: 100vw;
     height: 100vh;
-    background-color: #6ee0ba;
-    color: #042419;
+    background-color: #0c330c;
+    color: #fee;
 
     font-size: 18px;
     font-weight: 900;
@@ -30,7 +30,6 @@ body {
 h1 {
 
     font-size: 38px;
-    color: #0c330c;
 }
 
 .game-container {
@@ -38,7 +37,7 @@ h1 {
     padding: 16px;
     width: 600px;
     height: 480px;
-    background-color: #fee;
+    background-color: #c47356;
 
     border: 3px solid #0c330c;
 
@@ -71,7 +70,7 @@ h1 {
     height: 180px;
     border: 2px solid #0c330c;
     padding: 30px 10px;
-    background-color: #9cd6c3;
+    background-color: #baa0a0;
 }
 
 
@@ -80,7 +79,7 @@ h1 {
 input,
 .btn {
     border-radius: 6px;
-    box-shadow: 2px 2px 8px #0c330c;
+    box-shadow: 2px 2px 8px #b7b1b1;
 }
 
 
@@ -100,7 +99,7 @@ input {
     border: 1px solid #0c330c;
     padding: 4px 20px;
 
-    background-color: #9cd6c3;
+    background-color: lightgray;
 
     display: flex;
     flex-direction: column;
